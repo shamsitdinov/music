@@ -55,7 +55,7 @@ const Play = ({ songs, playing, setPlaying, currentSong }) => {
         </span>
         <GiNextButton className="icon" />
       </div>
-      <h1>Relax Time</h1>
+      <h1>Relax Time music</h1>
     </PlayerContainer>
   );
 };
