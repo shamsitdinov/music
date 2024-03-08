@@ -96,7 +96,7 @@ const Container = styled.div`
   color: white;
   text-align: center;
   min-height: 100vh;
-  background-color: #000;
+  background-color: #111;
   .close {
     right: 0;
     top: 0;
