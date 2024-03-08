@@ -69,8 +69,8 @@ const App = () => {
               <div>
                 <Main songs={songs} currentSong={currentSong} />
                 <Songs
-                setCurentSong={setCurentSong}
-                playSongHandle={playSongHandle}
+                  setCurentSong={setCurentSong}
+                  playSongHandle={playSongHandle}
                   // handleClik={handleClik}
                   currentSong={currentSong}
                   hideInput={hideInput}
