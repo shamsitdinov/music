@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 import { GiMusicalNotes } from "react-icons/gi";
 import { IoIosCloseCircle } from "react-icons/io";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-const Songs = ({ songs, disablet, hideInput, handleclik }) => {
+const Songs = ({
+  songs,
+  setCurentSong,
+  disablet,
+  playSongHandle,
+  // hideInput,
+  handleclik,
+}) => {
+  const songRef = useRef();
+  // const choosSong = () => {
+  //   playSongHandle();
+  //   setCurentSong(song);
+  // };
+
   return (
     <>
-      <Div onClick={handleclik}>
+      <Div>
         <div className={!disablet ? "shows" : "show"}>
           {songs.map((song, index) => (
             <div className="box" key={index}>
@@ -24,7 +37,6 @@ const Songs = ({ songs, disablet, hideInput, handleclik }) => {
 };
 
 const Div = styled.div`
-
   .show {
     height: 100vh;
     gap: 5%;
@@ -36,7 +48,7 @@ const Div = styled.div`
     top: 0;
     flex-direction: column;
   }
-  .text{
+  .text {
     width: 100vh;
   }
   .shows {

@@ -15,6 +15,7 @@ const App = () => {
   const [playing, setPlaying] = useState(true);
   const [loading, setLoading] = useState(true);
   const [currentSong, setCurentSong] = useState(chillHop[3]);
+  const songRef = useRef();
   const override: CSSProperties = {
     margin: "150px 0",
   };
@@ -26,15 +27,18 @@ const App = () => {
     setSongs(chillHop);
   }, []);
 
-  useEffect(() => {
-    setSongs(chillHop);
-  }, []);
   const hideInput = () => {
     setDisablet(!disablet);
   };
 
-  const handleClik = () => {
-    setSongs(chillHop.audio);
+  const playSongHandle = () => {
+    if (playing) {
+      songRef.current.play();
+      setPlaying(!playing);
+    } else {
+      songRef.current.pause();
+      setPlaying(!playing);
+    }
   };
 
   return (
@@ -65,7 +69,9 @@ const App = () => {
               <div>
                 <Main songs={songs} currentSong={currentSong} />
                 <Songs
-                  handleClik={handleClik}
+                setCurentSong={setCurentSong}
+                playSongHandle={playSongHandle}
+                  // handleClik={handleClik}
                   currentSong={currentSong}
                   hideInput={hideInput}
                   songs={songs}
@@ -176,14 +182,14 @@ const Container = styled.div`
         width: 10px;
       }
     }
-    .text{
+    .text {
       width: 50%;
     }
     .close {
       display: none;
     }
     .shows {
-      min-width: 400px;
+      min-width: 225px;
       height: 100vh;
       background-color: green;
     }
@@ -195,7 +201,7 @@ const Container = styled.div`
       height: 100vh;
       background-color: yellow;
     }
-    .text{
+    .text {
       width: 50%;
     }
     .close {
